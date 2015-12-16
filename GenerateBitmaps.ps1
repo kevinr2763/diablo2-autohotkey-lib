@@ -6,9 +6,9 @@
 
 [CmdletBinding()]
 Param(
-	[Parameter(Mandatory=$true, Position=1)]
+	[Parameter(Mandatory=$true)]
 	[String]$ScreenshotPath,
-	[Parameter(Mandatory=$true, Position=2)]
+	[Parameter(Mandatory=$true)]
 	[ValidateSet("Windowed", "Fullscreen")]
 	[String]$WindowType
 )
@@ -39,7 +39,7 @@ try {
 }
 catch
 {
-	throw "Could create bitmap from '$ScreenshotAbspath'. Ensure the image exists."
+	throw "Could not create bitmap from '$ScreenshotAbspath'. Ensure the image exists."
 }
 
 $RequiredSize = New-Object System.Drawing.Size(800, 600)
